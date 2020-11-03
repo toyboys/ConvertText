@@ -43,20 +43,10 @@ const Home = {
             document.execCommand("copy")
         },
         download(){
-            /*
-            const texto = document.getElementById('texto')
-            //window.MozBlobBuilder || window.webkitBlobBuilder || window.BlobBuilder)()
-            const bb = new Blob(['lucas'])
-            //bb.append((new XMLSerializer).serializeToString(document))
-            const blob = bb.getBlob("application/xhtml+xml;charset=utf-8" + document.characterSet);
-            saveAs(blob, "document.xhtml");
-            */
-
-           var downloading = chrome.downloads.download({
-            url : downloadUrl,
-            filename : 'my-image-again.png',
-            conflictAction : 'uniquify'
-           })
+                const texto = document.getElementById("texto").value
+                let titulo = "DOWNLOAD";               
+                let blob = new Blob([texto], { type: "text/plain;charset=utf-8" })
+                saveAs(blob, titulo + ".txt")
         }
     }
 }
