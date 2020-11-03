@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Convert Text</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="">
+        <router-view></router-view>
+      </div>
+    </div>
+
+    <template id="home">
+      <div>
+        <div class="capa">
+          <div class="box">
+            <h1>Convert Text</h1>
+            <div class="options">
+              <div>
+                <input
+                  v-model="options"
+                  id="options1"
+                  type="radio"
+                  value="UpperCase"
+                />
+                <label for="options1">UpperCase</label>
+              </div>
+
+              <div>
+                <input
+                  v-model="options"
+                  id="options2"
+                  type="radio"
+                  value="LowerCase"
+                />
+                <label for="options2">LowerCase</label>
+              </div>
+
+              <div>
+                <input
+                  v-model="options"
+                  id="options3"
+                  type="radio"
+                  value="Capitalized"
+                />
+                <label for="options3">Capitalized </label>
+              </div>
+
+              <div>
+                <input
+                  v-model="options"
+                  id="options4"
+                  type="radio"
+                  value="Reverse"
+                />
+                <label for="options4">Reverse</label>
+              </div>
+            </div>
+            <textarea
+            id="texto"
+              v-model="texto"
+              placeholder="Digite seu texto aqui."
+            ></textarea>
+            <button @click="modify()">Modify</button>
+
+            <div class="box-footer">
+              <button class="mr-2" @click="clear()">Clear</button>
+              <button class="mr-2" @click="copy()">Copy</button>
+              <button @click="download()">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="session">
+            <h2>UpperCase | Caixa alta</h2>
+            <p>
+              Caixa alta é uma expressão usada em tipografia para referir à
+              escrita com letras maiúsculas. É o mesmo que versais ou capitais.
+            </p>
+
+            <h2>LowerCase | Caixa baixa</h2>
+            <p>Caixa baixa, por sua vez, corresponde à escrita com letras minúsculas. </p>
+
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="info">
+      <div>
+        <h1>Info</h1>
+      </div>
+    </template>
+    
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/blob.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
