@@ -1,12 +1,18 @@
-const Home = {
-    template: '#home',
+const app = new Vue({
+    el: '#app',
     data(){
         return {
             options: '',
             texto: '',
         }
     },
+    created(){
+        this.texto = localStorage.getItem('textoTextArea')
+    },
     methods: {
+        saveDataLocalStorage(){
+            localStorage.setItem('textoTextArea', this.texto)
+        },
         modify(){
             //Reverse, Capitalized, UpperCase
             if(this.options === 'Capitalized'){
@@ -47,27 +53,6 @@ const Home = {
                 let titulo = "DOWNLOAD";               
                 let blob = new Blob([texto], { type: "text/plain;charset=utf-8" })
                 saveAs(blob, titulo + ".txt")
-        }
-    }
-}
-
-const Info = {
-    template: '#info',
-}
-
-const routes = [
-    { path: '/', component: Home },
-    { path: '/info', component: Info },
-]
-
-const router = new VueRouter({ mode: 'history', routes })
-
-const app = new Vue({
-    el: '#app',
-    router,
-    data() {
-        return {
-            title: ''
         }
     }
 })

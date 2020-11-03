@@ -8,12 +8,6 @@
   </head>
   <body>
     <div id="app">
-      <div class="">
-        <router-view></router-view>
-      </div>
-    </div>
-
-    <template id="home">
       <div>
         <div class="capa">
           <div class="box">
@@ -60,6 +54,7 @@
               </div>
             </div>
             <textarea
+            @keyup="saveDataLocalStorage()"
             id="texto"
               v-model="texto"
               placeholder="Digite seu texto aqui."
@@ -88,16 +83,9 @@
           </div>
         </div>
       </div>
-    </template>
-
-    <template id="info">
-      <div>
-        <h1>Info</h1>
-      </div>
-    </template>
-    
+    </div>
+ 
     <script src="js/vue.js"></script>
-    <script src="js/vue-router.js"></script>
     <script src="js/FileSaver.js"></script>
     <script src="app.js"></script>
   </body>
